@@ -4,26 +4,23 @@
 public class Stocks {
     public static void main(String[] args){
         if(args.length > 0){
-            String file = args[0];
+            String[] file = args[0].split(" ");
             Float low = null;
             Float high = null;
             Float currProf = 0.0f;
             int indexCurr = 0;
-            int indexX = 0;
-            for (String num : file.split(" ")){
+            for (String num : file){
                 Float curr=Float.parseFloat(num);
-                    for(String x : file.split(" ")){
-                        if (Float.parseFloat(x) > curr && (indexCurr + 1) < indexX){
-                            Float prof = Float.parseFloat(x) - curr;
+                    for(int i = indexCurr+1; i < file.length; i++){
+                        if (Float.parseFloat(file[i]) > curr){
+                            Float prof = Float.parseFloat(file[i]) - curr;
                             if(prof > currProf){
                                 currProf = prof;
                                 low = curr;
-                                high = Float.parseFloat(x);
+                                high = Float.parseFloat(file[i]);
 
                             }
                         }
-                        indexX++;
-
                 }
                 indexCurr++;
             }
