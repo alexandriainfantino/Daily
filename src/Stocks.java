@@ -5,7 +5,6 @@ public class Stocks {
     public static void main(String[] args){
         if(args.length > 0){
             String file = args[0];
-            String comp = args[0];
             Float low = null;
             Float high = null;
             Float currProf = 0.0f;
